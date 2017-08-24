@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FinalProjectApp.Views;
 
 using Xamarin.Forms;
 
@@ -13,7 +14,7 @@ namespace FinalProjectApp
 		{
 			InitializeComponent();
 
-			MainPage = new FinalProjectApp.MainPage();
+			MainPage = new HomePage();
 		}
 
 		protected override void OnStart()
