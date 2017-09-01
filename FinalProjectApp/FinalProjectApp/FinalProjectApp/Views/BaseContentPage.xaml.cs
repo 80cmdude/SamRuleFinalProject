@@ -9,9 +9,9 @@ using Xamarin.Forms.Xaml;
 
 namespace FinalProjectApp.Views
 {
-	public partial class HomePage : BaseContentPage
+	public partial class BaseContentPage : ContentPage
 	{
-		public HomePage()
+		public BaseContentPage()
 		{
 			InitializeComponent();
 		}

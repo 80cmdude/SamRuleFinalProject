@@ -5,9 +5,11 @@ using System.Text;
 using FinalProjectApp.Views;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace FinalProjectApp
 {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class App : Application
 	{
 		public App()
