@@ -7,6 +7,8 @@
     <ContentPage.Content>
         <StackLayout>
 			<Label Text="{x:Static resx:AppResources.HelloWorld}" />
+			<Button Text="SaveData" Command="{Binding SaveData}" />
+			<Button Text="GetData" Command="{Binding GetData}" />
 		</StackLayout>
     </ContentPage.Content>
 </views:BaseContentPage>

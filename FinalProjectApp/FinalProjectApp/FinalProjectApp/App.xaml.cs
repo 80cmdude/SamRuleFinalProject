@@ -7,12 +7,16 @@ using FinalProjectApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FinalProjectApp.ViewModels;
+using FinalProjectApp.Data;
+using FinalProjectApp.Models;
 
 namespace FinalProjectApp
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class App : Application
 	{
+		private static Database _orderDatabase;
+
 		public App()
 		{
 			InitializeComponent();
@@ -33,6 +37,20 @@ namespace FinalProjectApp
 		protected override void OnResume()
 		{
 			// Handle when your app resumes
+		}
+
+		public static Database OrderDatabase
+		{
+			get
+			{
+				if (_orderDatabase == null)
+				{
+					_orderDatabase = new Database("Orders");
+					_orderDatabase.CreateTable<Order>();
+					return _orderDatabase;
+				}
+				return _orderDatabase;
+			}
 		}
 	}
 }
