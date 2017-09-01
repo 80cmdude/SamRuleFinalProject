@@ -5,7 +5,7 @@
              x:Class="FinalProjectApp.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding HelloWorld}" />
-        </StackLayout>
+			<Label Text="{Binding HelloWorld}" />
+		</StackLayout>
     </ContentPage.Content>
 </views:BaseContentPage>

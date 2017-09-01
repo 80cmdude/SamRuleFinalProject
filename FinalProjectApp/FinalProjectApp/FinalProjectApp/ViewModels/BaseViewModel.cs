@@ -6,10 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using PropertyChanged;
 
 namespace FinalProjectApp.ViewModels
 {
-	public abstract class BaseViewModel : IViewModel, INotifyPropertyChanged
+	[AddINotifyPropertyChangedInterface]
+	public abstract class BaseViewModel : IViewModel
 	{
 		public BaseViewModel()
 		{
@@ -27,7 +29,5 @@ namespace FinalProjectApp.ViewModels
 		{
 
 		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }
