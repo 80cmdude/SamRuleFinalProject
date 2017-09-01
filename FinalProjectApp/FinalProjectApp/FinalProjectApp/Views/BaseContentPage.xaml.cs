@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProjectApp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,10 @@ namespace FinalProjectApp.Views
 {
 	public partial class BaseContentPage : ContentPage
 	{
-		public BaseContentPage()
+		public BaseContentPage(IViewModel vm)
 		{
 			InitializeComponent();
+			this.BindingContext = vm;
 		}
 	}
 }

@@ -6,6 +6,7 @@ using FinalProjectApp.Views;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FinalProjectApp.ViewModels;
 
 namespace FinalProjectApp
 {
@@ -16,7 +17,7 @@ namespace FinalProjectApp
 		{
 			InitializeComponent();
 
-			MainPage = new HomePage();
+			MainPage = new HomePage(new HomePageViewModel());
 		}
 
 		protected override void OnStart()
