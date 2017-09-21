@@ -21,7 +21,7 @@ namespace FinalProjectApp
 		{
 			InitializeComponent();
 
-			MainPage = new HomePage(new HomePageViewModel());
+			MainPage = new NavigationPage(new HomePage(new HomePageViewModel()));
 		}
 
 		protected override void OnStart()

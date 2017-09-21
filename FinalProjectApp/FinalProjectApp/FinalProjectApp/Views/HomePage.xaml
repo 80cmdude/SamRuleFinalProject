@@ -6,9 +6,8 @@
              x:Class="FinalProjectApp.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
-			<Label Text="{x:Static resx:AppResources.HelloWorld}" />
-			<Button Text="SaveData" Command="{Binding SaveData}" />
-			<Button Text="GetData" Command="{Binding GetData}" />
+			<Button Text="{x:Static resx:AppResources.SignIn}" Command="{Binding NavigateSignInCommand}" />
+			<Button Text="{x:Static resx:AppResources.Register}" Command="{Binding NavigateRegisterCommand}" />
 		</StackLayout>
     </ContentPage.Content>
 </views:BaseContentPage>

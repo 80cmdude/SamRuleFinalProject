@@ -7,32 +7,25 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using FinalProjectApp.Resources.Resx;
 using FinalProjectApp.Models;
+using FinalProjectApp.Views;
 
 namespace FinalProjectApp.ViewModels
 {
 	public class HomePageViewModel : BaseViewModel
 	{
-		private int orderId = 1;
-		private int userId = 1;
 		public HomePageViewModel()
 		{
 
 		}
 
-		public ICommand SaveData => new Command(() =>
+		public ICommand NavigateSignInCommand => new Command(async() =>
 		{
-			Order order = new Order();
-			order.Item = "cake";
-			order.OrderId = orderId;
-			order.UserId = userId;
-			App.OrderDatabase.SaveItem(order);
-			orderId++;
-			userId++;
+			await Navigation.PushAsync(new SignInRegisterPage(new SignInRegisterPageViewModel()));
 		});
 
-		public ICommand GetData => new Command(() =>
+		public ICommand NavigateRegisterCommand => new Command(async() =>
 		{
-			var check = App.OrderDatabase.GetItems<Order>();
+			await Navigation.PushAsync(new SignInRegisterPage(new SignInRegisterPageViewModel()));
 		});
 	}
 }

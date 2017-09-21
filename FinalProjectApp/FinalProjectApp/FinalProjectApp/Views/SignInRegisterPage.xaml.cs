@@ -10,13 +10,12 @@ using Xamarin.Forms.Xaml;
 
 namespace FinalProjectApp.Views
 {
-	public partial class BaseContentPage : ContentPage
+	public partial class SignInRegisterPage : BaseContentPage
 	{
-		public BaseContentPage(IViewModel vm)
+		public SignInRegisterPage(IViewModel vm) : base(vm)
 		{
 			InitializeComponent();
-			this.BindingContext = vm;
-			vm.Navigation = this.Navigation;
+			Title = "cake";
 			
 		}
 	}

@@ -22,7 +22,7 @@ namespace FinalProjectApp.ViewModels
 
 		public virtual void OnAppearing()
 		{
-
+			
 		}
 
 		public virtual void OnDisappearing()
