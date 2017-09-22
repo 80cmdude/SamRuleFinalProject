@@ -38,11 +38,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\Settings.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\BaseItem.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="ServiceInterfaces\ISQLiteService.cs" />
     <Compile Include="Interfaces\IViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +53,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service\ApiEndPoints.cs" />
+    <Compile Include="Service\ApiRequest.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\SignInRegisterPageViewModel.cs" />
