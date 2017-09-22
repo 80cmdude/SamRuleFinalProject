@@ -21,25 +21,27 @@ namespace FinalProjectApp.Service
 				var json = JsonConvert.SerializeObject(requestObject);
 
 				var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-				httpContent.Headers.Add("Authorization", $"Basic {Settings.Token}");
+				//httpContent.Headers.Add("Authorization", $"Basic {Settings.Token}");
 
 				var response = await httpClient.PostAsync(ApiEndPoints.Register, httpContent);
 
-				string jsonResponse = await response.Content.ReadAsStringAsync();
+				var jsonResponse = await response.Content.ReadAsStringAsync();
 
 				return jsonResponse;
 			}
-			catch
+			catch (Exception e)
 			{
 				return null;
 			}
 		}
 
-		public User RegisterRequest(User user)
+		public async Task<User> RegisterRequest(User user)
 		{
-			var json = GeneratePostRequest(user);
-			var newUser = JsonConvert.DeserializeObject<User>(json.Result);
-			return newUser;
+			var json = await GeneratePostRequest(user);
+
+			//var newUser = JsonConvert.DeserializeObject<>(json);
+
+			return user;
 		}
 	}
 }

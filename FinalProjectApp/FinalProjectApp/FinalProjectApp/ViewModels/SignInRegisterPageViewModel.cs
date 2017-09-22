@@ -1,4 +1,5 @@
 ﻿using FinalProjectApp.Models;
+using FinalProjectApp.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,13 @@ namespace FinalProjectApp.ViewModels
 
 		public SignInRegisterPageViewModel()
 		{
-
+			EmployeeNumberEntryText = "";
+			PasswordEntryText = "";
+			FirstNameEntryText = "";
+			LastNameEntryText = "";
 		}
 
-		public ICommand RegisterCommand => new Command(() =>
+		public ICommand RegisterCommand => new Command(async() =>
 		{
 			bool isEmployee = int.TryParse(EmployeeNumberEntryText, out int employeeNumber);
 
@@ -40,7 +44,9 @@ namespace FinalProjectApp.ViewModels
 				Password = _password,
 			};
 
+			ApiRequest request = new ApiRequest();
 
+			var response = await request.RegisterRequest(newUser);
 		});
 	}
 }
