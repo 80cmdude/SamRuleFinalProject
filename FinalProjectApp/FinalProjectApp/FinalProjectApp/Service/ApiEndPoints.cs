@@ -10,7 +10,7 @@ namespace FinalProjectApp.Service
 	{
 		private static string _api = "/api";
 
-		public static string Register = Constants.ApiUrl + "/Register";
-		public static string SignIn = Constants.ApiUrl + "/SignIn";
+		public static string Register = Constants.ApiUrl + _api + "/Register";
+		public static string SignIn = Constants.ApiUrl + _api + "/SignIn";
 	}
 }
