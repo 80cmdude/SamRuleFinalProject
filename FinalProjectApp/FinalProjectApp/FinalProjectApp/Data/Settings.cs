@@ -12,16 +12,16 @@ namespace FinalProjectApp.Data
 	{
 		private static ISettings AppSettings => CrossSettings.Current;
 
-		public static string EmployeeNumber
+		public static string UserId
 		{
-			get => AppSettings.GetValueOrDefault(nameof(EmployeeNumber), string.Empty);
-			set => AppSettings.AddOrUpdateValue(nameof(EmployeeNumber), value);
+			get => AppSettings.GetValueOrDefault(nameof(UserId), string.Empty);
+			set => AppSettings.AddOrUpdateValue(nameof(UserId), value);
 		}
 
 		public static string Token
 		{
-			get => AppSettings.GetValueOrDefault(nameof(EmployeeNumber), string.Empty);
-			set => AppSettings.AddOrUpdateValue(nameof(EmployeeNumber), value);
+			get => AppSettings.GetValueOrDefault(nameof(Token), string.Empty);
+			set => AppSettings.AddOrUpdateValue(nameof(Token), value);
 		}
 	}
 }

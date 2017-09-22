@@ -8,6 +8,6 @@ namespace FinalProjectApp
 {
 	public static class Constants
 	{
-		public static string ApiUrl = "http://e92e6c09.ngrok.io";
+		public static string ApiUrl = "http://9102cea3.ngrok.io";
 	}
 }

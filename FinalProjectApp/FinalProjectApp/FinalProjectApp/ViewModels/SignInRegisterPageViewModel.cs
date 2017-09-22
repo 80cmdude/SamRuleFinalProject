@@ -46,7 +46,10 @@ namespace FinalProjectApp.ViewModels
 
 			ApiRequest request = new ApiRequest();
 
-			var response = await request.RegisterRequest(newUser);
+			if (await request.RegisterRequest(newUser))
+			{
+				//navigate to page
+			};
 		});
 	}
 }

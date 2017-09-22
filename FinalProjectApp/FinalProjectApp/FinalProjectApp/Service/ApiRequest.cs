@@ -17,11 +17,10 @@ namespace FinalProjectApp.Service
 			try
 			{
 				var httpClient = new HttpClient();
-
 				var json = JsonConvert.SerializeObject(requestObject);
 
 				var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-				//httpContent.Headers.Add("Authorization", $"Basic {Settings.Token}");
+				httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {Settings.Token}");
 
 				var response = await httpClient.PostAsync(ApiEndPoints.Register, httpContent);
 
@@ -35,13 +34,19 @@ namespace FinalProjectApp.Service
 			}
 		}
 
-		public async Task<User> RegisterRequest(User user)
+		public async Task<bool> RegisterRequest(User user)
 		{
 			var json = await GeneratePostRequest(user);
 
-			//var newUser = JsonConvert.DeserializeObject<>(json);
+			Dictionary<string,string> newUser = JsonConvert.DeserializeObject<Dictionary<string,string>>(json);
 
-			return user;
+			if (newUser["success"] == "true")
+			{
+				Settings.Token = newUser["token"];
+				Settings.UserId = newUser["id"];
+				return true;
+			}
+			return false;
 		}
 	}
 }
