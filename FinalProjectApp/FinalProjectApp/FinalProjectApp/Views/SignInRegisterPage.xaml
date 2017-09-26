@@ -5,19 +5,17 @@
              x:Class="FinalProjectApp.Views.SignInRegisterPage">
 	<ContentView.Content>
 		<StackLayout>
-			<StackLayout>
-				<Label Text="Employee Number" />
-				<Entry Text="{Binding EmployeeNumberEntryText}" />
-				<Label Text="Password" />
-				<Entry Text="{Binding PasswordEntryText}" />
-			</StackLayout>
+			<Label Text="Employee Number" />
+			<Entry Text="{Binding EmployeeNumberEntryText}" />
+			<Label Text="Password" />
+			<Entry Text="{Binding PasswordEntryText}" />
 			<StackLayout IsVisible="{Binding IsSignInPage, Converter={StaticResource BoolInvert}}">
 				<Label Text="First Name" />
 				<Entry Text="{Binding FirstNameEntryText}"  />
 				<Label Text="Last Name" />
 				<Entry Text="{Binding LastNameEntryText}"  />
-				<Button Text="Register" Command="{Binding RegisterCommand}"/>
 			</StackLayout>
+			<Button Text="Register" Command="{Binding SignInRegisterCommand}"/>
 		</StackLayout>
 	</ContentView.Content>
 </views:BaseContentPage>

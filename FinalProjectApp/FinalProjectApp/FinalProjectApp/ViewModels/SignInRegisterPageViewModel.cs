@@ -31,7 +31,25 @@ namespace FinalProjectApp.ViewModels
 			LastNameEntryText = "";
 		}
 
-		public ICommand RegisterCommand => new Command(async() =>
+		public ICommand SignInRegisterCommand => new Command(async () =>
+		{
+			if (IsSignInPage)
+			{
+				if (await SignIn())
+				{
+					//Navigate
+				}
+			}
+			else
+			{
+				if (await Register())
+				{
+					//Navigate
+				};
+			}
+		});
+
+		private async Task<bool> Register()
 		{
 			bool isEmployee = int.TryParse(EmployeeNumberEntryText, out int employeeNumber);
 
@@ -48,10 +66,12 @@ namespace FinalProjectApp.ViewModels
 
 			UserApiRequest request = new UserApiRequest();
 
-			if (await request.RegisterRequest(newUser))
-			{
-				//navigate to page
-			};
-		});
+			return await request.RegisterRequest(newUser);
+		}
+
+		private async Task<bool> SignIn()
+		{
+			return true;
+		}
 	}
 }
