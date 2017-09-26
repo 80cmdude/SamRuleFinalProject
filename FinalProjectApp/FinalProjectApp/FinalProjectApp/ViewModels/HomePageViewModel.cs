@@ -20,12 +20,12 @@ namespace FinalProjectApp.ViewModels
 
 		public ICommand NavigateSignInCommand => new Command(async() =>
 		{
-			await Navigation.PushAsync(new SignInRegisterPage(new SignInRegisterPageViewModel()));
+			await Navigation.PushAsync(new SignInRegisterPage(new SignInRegisterPageViewModel(true)));
 		});
 
 		public ICommand NavigateRegisterCommand => new Command(async() =>
 		{
-			await Navigation.PushAsync(new SignInRegisterPage(new SignInRegisterPageViewModel()));
+			await Navigation.PushAsync(new SignInRegisterPage(new SignInRegisterPageViewModel(false)));
 		});
 	}
 }

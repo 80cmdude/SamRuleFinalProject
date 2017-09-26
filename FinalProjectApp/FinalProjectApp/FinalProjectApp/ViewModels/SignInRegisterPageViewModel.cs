@@ -12,6 +12,7 @@ namespace FinalProjectApp.ViewModels
 {
 	public class SignInRegisterPageViewModel : BaseViewModel
 	{
+		public bool IsSignInPage { get; set; }
 		public string EmployeeNumberEntryText { get; set; }
 		public string PasswordEntryText { get; set; }
 		public string ConfirmPasswordEntryText { get; set; }
@@ -21,8 +22,9 @@ namespace FinalProjectApp.ViewModels
 		private int _employeeNumber { get; set; }
 		private string _password { get; set; }
 
-		public SignInRegisterPageViewModel()
+		public SignInRegisterPageViewModel(bool isSignInPage)
 		{
+			IsSignInPage = isSignInPage;
 			EmployeeNumberEntryText = "";
 			PasswordEntryText = "";
 			FirstNameEntryText = "";

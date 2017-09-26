@@ -1,4 +1,5 @@
 ﻿using FinalProjectApp.Interfaces;
+using FinalProjectApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace FinalProjectApp.Views
 	{
 		public SignInRegisterPage(IViewModel vm) : base(vm)
 		{
-			InitializeComponent();			
+			InitializeComponent();
 		}
 	}
 }

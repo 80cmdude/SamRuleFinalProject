@@ -39,6 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Converters\InvertBoolConverter.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\Settings.cs" />
     <Compile Include="Models\BaseItem.cs" />
