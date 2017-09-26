@@ -44,7 +44,7 @@ namespace FinalProjectApp.ViewModels
 				Password = _password,
 			};
 
-			ApiRequest request = new ApiRequest();
+			UserApiRequest request = new UserApiRequest();
 
 			if (await request.RegisterRequest(newUser))
 			{

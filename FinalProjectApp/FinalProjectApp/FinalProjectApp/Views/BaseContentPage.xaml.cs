@@ -17,7 +17,6 @@ namespace FinalProjectApp.Views
 			InitializeComponent();
 			this.BindingContext = vm;
 			vm.Navigation = this.Navigation;
-			
 		}
 	}
 }

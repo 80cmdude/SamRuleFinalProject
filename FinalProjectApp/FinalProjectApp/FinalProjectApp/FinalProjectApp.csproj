@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Service\ApiEndPoints.cs" />
     <Compile Include="Service\ApiRequest.cs" />
+    <Compile Include="Service\UserApiRequest.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\SignInRegisterPageViewModel.cs" />

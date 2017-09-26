@@ -14,9 +14,7 @@ namespace FinalProjectApp.Views
 	{
 		public SignInRegisterPage(IViewModel vm) : base(vm)
 		{
-			InitializeComponent();
-			Title = "cake";
-			
+			InitializeComponent();			
 		}
 	}
 }
