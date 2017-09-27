@@ -20,7 +20,7 @@ namespace FinalProjectApp.Service
 			if (newUser["success"] == "true")
 			{
 				Settings.Token = newUser["token"];
-				Settings.UserId = newUser["id"];
+				Settings.UserId = Convert.ToInt32(newUser["id"]);
 				return true;
 			}
 			return false;

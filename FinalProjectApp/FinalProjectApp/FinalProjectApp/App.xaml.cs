@@ -20,8 +20,14 @@ namespace FinalProjectApp
 		public App()
 		{
 			InitializeComponent();
-
-			MainPage = new NavigationPage(new HomePage(new HomePageViewModel()));
+			if (string.IsNullOrEmpty(Settings.Token))
+			{
+				MainPage = new NavigationPage(new HomePage(new HomePageViewModel()));
+			}
+			else
+			{
+				MainPage = new NavigationPage(new HomePage(new HomePageViewModel()));
+			}
 		}
 
 		protected override void OnStart()

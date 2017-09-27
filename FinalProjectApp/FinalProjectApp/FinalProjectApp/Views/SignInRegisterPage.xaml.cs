@@ -13,7 +13,7 @@ namespace FinalProjectApp.Views
 {
 	public partial class SignInRegisterPage : BaseContentPage
 	{
-		public SignInRegisterPage(IViewModel vm) : base(vm)
+		public SignInRegisterPage(SignInRegisterPageViewModel vm) : base(vm)
 		{
 			InitializeComponent();
 		}

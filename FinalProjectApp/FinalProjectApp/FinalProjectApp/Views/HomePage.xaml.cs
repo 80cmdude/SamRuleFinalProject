@@ -1,4 +1,5 @@
 ﻿using FinalProjectApp.Interfaces;
+using FinalProjectApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace FinalProjectApp.Views
 {
 	public partial class HomePage : BaseContentPage
 	{
-		public HomePage(IViewModel vm) : base(vm)
+		public HomePage(HomePageViewModel vm) : base(vm)
 		{
 			InitializeComponent();
 		}

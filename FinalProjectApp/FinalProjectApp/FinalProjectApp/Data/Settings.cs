@@ -12,9 +12,9 @@ namespace FinalProjectApp.Data
 	{
 		private static ISettings AppSettings => CrossSettings.Current;
 
-		public static string UserId
+		public static int UserId
 		{
-			get => AppSettings.GetValueOrDefault(nameof(UserId), string.Empty);
+			get => AppSettings.GetValueOrDefault(nameof(UserId), 0);
 			set => AppSettings.AddOrUpdateValue(nameof(UserId), value);
 		}
 
@@ -22,6 +22,12 @@ namespace FinalProjectApp.Data
 		{
 			get => AppSettings.GetValueOrDefault(nameof(Token), string.Empty);
 			set => AppSettings.AddOrUpdateValue(nameof(Token), value);
+		}
+
+		public static void ClearSettings()
+		{
+			UserId = 0;
+			Token = string.Empty;
 		}
 	}
 }
