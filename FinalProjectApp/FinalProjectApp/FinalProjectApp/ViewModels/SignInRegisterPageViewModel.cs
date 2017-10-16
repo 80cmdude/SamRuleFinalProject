@@ -1,5 +1,6 @@
 ﻿using FinalProjectApp.Models;
 using FinalProjectApp.Service;
+using FinalProjectApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,14 +38,15 @@ namespace FinalProjectApp.ViewModels
 			{
 				if (await SignIn())
 				{
-					//Navigate
+					await Navigation.PushAsync(new Dashboard());
 				}
+				await Navigation.PushAsync(new Dashboard());
 			}
 			else
 			{
 				if (await Register())
 				{
-					//Navigate
+					await Navigation.PushAsync(new Dashboard());
 				};
 			}
 		});
