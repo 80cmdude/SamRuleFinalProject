@@ -71,7 +71,19 @@ namespace FinalProjectApp.ViewModels
 
 		private async Task<bool> SignIn()
 		{
-			return true;
+			bool isEmployee = int.TryParse(EmployeeNumberEntryText, out int employeeNumber);
+			_employeeNumber = employeeNumber;
+			_password = PasswordEntryText;
+
+			User newUser = new User()
+			{
+				EmployeeNumber = _employeeNumber,
+				Password = _password,
+			};
+
+			UserApiRequest request = new UserApiRequest();
+
+			return await request.SignInRequest(newUser);
 		}
 	}
 }

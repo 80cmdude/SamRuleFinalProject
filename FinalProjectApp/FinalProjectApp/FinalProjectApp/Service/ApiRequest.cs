@@ -10,7 +10,7 @@ namespace FinalProjectApp.Service
 {
 	public class ApiRequest
 	{
-		protected async Task<string> GeneratePostRequest<T>(T requestObject)
+		protected async Task<string> GeneratePostRequest<T>(T requestObject, string endPoint)
 		{
 			try
 			{
@@ -20,7 +20,7 @@ namespace FinalProjectApp.Service
 				var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
 				httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {Settings.Token}");
 
-				var response = await httpClient.PostAsync(ApiEndPoints.Register, httpContent);
+				var response = await httpClient.PostAsync(endPoint, httpContent);
 
 				var jsonResponse = await response.Content.ReadAsStringAsync();
 

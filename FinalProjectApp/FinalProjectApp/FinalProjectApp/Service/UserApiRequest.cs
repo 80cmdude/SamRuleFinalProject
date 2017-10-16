@@ -16,7 +16,7 @@ namespace FinalProjectApp.Service
 		{
 			try
 			{
-				var json = await GeneratePostRequest(user);
+				var json = await GeneratePostRequest(user, ApiEndPoints.Register);
 				Dictionary<string, string> newUser = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
 
 				if (newUser["success"] == "true")
@@ -27,6 +27,21 @@ namespace FinalProjectApp.Service
 				}
 				Alerts.PopAlertMessage("User already exists", "Sorry the user entered already exists, please sign in instead");
 				return false;
+			}
+			catch (Exception e)
+			{
+				Alerts.ServiceUnavailable();
+				return false;
+			}
+		}
+
+		public async Task<bool> SignInRequest(User user)
+		{
+			try
+			{
+				var json = await GeneratePostRequest(user, ApiEndPoints.SignIn);
+				Dictionary<string, string> signInUser = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+				return true;
 			}
 			catch (Exception e)
 			{
