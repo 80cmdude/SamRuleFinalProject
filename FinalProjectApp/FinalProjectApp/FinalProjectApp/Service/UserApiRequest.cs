@@ -16,17 +16,22 @@ namespace FinalProjectApp.Service
 		{
 			try
 			{
-				var json = await GeneratePostRequest(user, ApiEndPoints.Register);
-				Dictionary<string, string> newUser = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-
-				if (newUser["success"] == "true")
+				var response = await GeneratePostRequest(user, ApiEndPoints.Register);
+				
+				if (!response.IsSuccessStatusCode)
 				{
-					Settings.Token = newUser["token"];
-					Settings.UserId = Convert.ToInt32(newUser["id"]);
-					return true;
+					response.Headers.TryGetValues("Error", out var errorReason);
+					Alerts.PopAlertMessage("There was an issue", errorReason.FirstOrDefault());
+					return false;
 				}
-				Alerts.PopAlertMessage("User already exists", "Sorry the user entered already exists, please sign in instead");
-				return false;
+
+				var jsonResponse = await response.Content.ReadAsStringAsync();
+
+				var newUser = JsonConvert.DeserializeObject<User>(jsonResponse);
+				
+				Settings.Token = newUser.Token;
+				Settings.UserId = Convert.ToInt32(newUser.ID);
+				return true;
 			}
 			catch (Exception e)
 			{
@@ -39,8 +44,17 @@ namespace FinalProjectApp.Service
 		{
 			try
 			{
-				var json = await GeneratePostRequest(user, ApiEndPoints.SignIn);
-				Dictionary<string, string> signInUser = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+				var response = await GeneratePostRequest(user, ApiEndPoints.SignIn);
+
+				if (!response.IsSuccessStatusCode)
+				{
+					response.Headers.TryGetValues("Error", out var errorReason);
+					Alerts.PopAlertMessage("There was an issue", errorReason.FirstOrDefault());
+					return false;
+				}
+
+				var jsonResponse = await response.Content.ReadAsStringAsync();
+				User signInUser = JsonConvert.DeserializeObject<User>(jsonResponse);
 				return true;
 			}
 			catch (Exception e)

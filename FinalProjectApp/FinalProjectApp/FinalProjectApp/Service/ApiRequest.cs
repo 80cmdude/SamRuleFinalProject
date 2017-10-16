@@ -10,7 +10,7 @@ namespace FinalProjectApp.Service
 {
 	public class ApiRequest
 	{
-		protected async Task<string> GeneratePostRequest<T>(T requestObject, string endPoint)
+		protected async Task<HttpResponseMessage> GeneratePostRequest<T>(T requestObject, string endPoint)
 		{
 			try
 			{
@@ -21,10 +21,7 @@ namespace FinalProjectApp.Service
 				httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {Settings.Token}");
 
 				var response = await httpClient.PostAsync(endPoint, httpContent);
-
-				var jsonResponse = await response.Content.ReadAsStringAsync();
-
-				return jsonResponse;
+				return response;
 			}
 			catch (Exception e)
 			{
