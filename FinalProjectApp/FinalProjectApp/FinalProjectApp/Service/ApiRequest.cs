@@ -1,7 +1,10 @@
-﻿using FinalProjectApp.Data;
+﻿using FinalProjectApp.Alert;
+using FinalProjectApp.Data;
+using FinalProjectApp.Helpers;
 using FinalProjectApp.Models;
 using Newtonsoft.Json;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +24,18 @@ namespace FinalProjectApp.Service
 				httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {Settings.Token}");
 
 				var response = await httpClient.PostAsync(endPoint, httpContent);
+				if (ResponseHelper.HasHttpError(response))
+				{
+					return null;
+				}
 				return response;
 			}
 			catch (Exception e)
 			{
+				Alerts.ServiceUnavailable();
 				return null;
 			}
 		}
+		
 	}
 }

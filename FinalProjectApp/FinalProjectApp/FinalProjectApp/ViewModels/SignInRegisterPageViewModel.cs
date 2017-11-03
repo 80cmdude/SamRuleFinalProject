@@ -40,7 +40,6 @@ namespace FinalProjectApp.ViewModels
 				{
 					await Navigation.PushAsync(new Dashboard());
 				}
-				await Navigation.PushAsync(new Dashboard());
 			}
 			else
 			{
