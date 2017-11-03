@@ -22,6 +22,7 @@ namespace FinalProjectApp.Service
 
 				var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
 				httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {Settings.Token}");
+				httpClient.DefaultRequestHeaders.Add("Id", $"{Settings.UserId}");
 
 				var response = await httpClient.PostAsync(endPoint, httpContent);
 				if (ResponseHelper.HasHttpError(response))

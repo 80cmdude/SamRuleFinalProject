@@ -46,6 +46,7 @@
     <Compile Include="Helpers\ResponseHelper.cs" />
     <Compile Include="Models\BaseItem.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="ServiceInterfaces\ISQLiteService.cs" />
     <Compile Include="Interfaces\IViewModel.cs" />
@@ -57,6 +58,7 @@
     </Compile>
     <Compile Include="Service\ApiEndPoints.cs" />
     <Compile Include="Service\ApiRequest.cs" />
+    <Compile Include="Service\TransactionApiRequest.cs" />
     <Compile Include="Service\UserApiRequest.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CardPageViewModel.cs" />

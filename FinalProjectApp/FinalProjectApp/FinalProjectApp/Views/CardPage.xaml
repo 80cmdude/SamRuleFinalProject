@@ -6,7 +6,8 @@
 			 Title="My Card">
 	<views:BaseContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
-        </StackLayout>
+            <Label Text="{Binding Balance}" />
+			<Button Command="{Binding AddPoints}" />
+		</StackLayout>
     </views:BaseContentPage.Content>
 </views:BaseContentPage>

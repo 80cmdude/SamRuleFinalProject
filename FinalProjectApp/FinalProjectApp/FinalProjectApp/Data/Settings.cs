@@ -24,10 +24,17 @@ namespace FinalProjectApp.Data
 			set => AppSettings.AddOrUpdateValue(nameof(Token), value);
 		}
 
+		public static decimal Balance
+		{
+			get => AppSettings.GetValueOrDefault(nameof(Balance), 0m);
+			set => AppSettings.AddOrUpdateValue(nameof(Balance), value);
+		}
+
 		public static void ClearSettings()
 		{
 			UserId = 0;
 			Token = string.Empty;
+			Balance = 0;
 		}
 	}
 }
