@@ -26,7 +26,7 @@ namespace FinalProjectApp
 			}
 			else
 			{
-				MainPage = new NavigationPage(new HomePage(new HomePageViewModel()));
+				MainPage = new NavigationPage(new Dashboard());
 			}
 		}
 

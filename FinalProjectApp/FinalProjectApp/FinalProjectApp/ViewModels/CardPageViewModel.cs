@@ -22,5 +22,12 @@ namespace FinalProjectApp.ViewModels
 			await request.TransactionRequest(transaction);
 			Balance = Settings.Balance;
 		});
+
+		public async void GetBalance()
+		{
+			TransactionApiRequest request = new TransactionApiRequest();
+			await request.GetBalanceRequest();
+			Balance = Settings.Balance;
+		}
 	}
 }

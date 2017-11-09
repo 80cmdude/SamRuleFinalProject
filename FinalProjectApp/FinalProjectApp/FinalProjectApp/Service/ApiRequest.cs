@@ -37,6 +37,28 @@ namespace FinalProjectApp.Service
 				return null;
 			}
 		}
-		
+
+		protected async Task<HttpResponseMessage> GenerateGetRequest(string endPoint)
+		{
+			try
+			{
+				var httpClient = new HttpClient();
+				
+				httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {Settings.Token}");
+				httpClient.DefaultRequestHeaders.Add("Id", $"{Settings.UserId}");
+
+				var response = await httpClient.GetAsync(endPoint);
+				if (ResponseHelper.HasHttpError(response))
+				{
+					return null;
+				}
+				return response;
+			}
+			catch (Exception e)
+			{
+				Alerts.ServiceUnavailable();
+				return null;
+			}
+		}
 	}
 }

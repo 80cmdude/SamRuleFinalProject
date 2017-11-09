@@ -1,4 +1,5 @@
-﻿using FinalProjectApp.ViewModels;
+﻿using FinalProjectApp.Data;
+using FinalProjectApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,19 @@ namespace FinalProjectApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CardPage : BaseContentPage
 	{
+		CardPageViewModel ViewModel { get; set; }
+
 		public CardPage(CardPageViewModel vm) : base(vm)
 		{
 			InitializeComponent();
+
+			ViewModel = vm;
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			ViewModel.GetBalance();
 		}
 	}
 }

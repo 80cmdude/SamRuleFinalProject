@@ -23,5 +23,18 @@ namespace FinalProjectApp.Service
 			}
 			return false;
 		}
+
+		public async Task<bool> GetBalanceRequest()
+		{
+			var response = await GenerateGetRequest(ApiEndPoints.Balance);
+			if (response != null)
+			{
+				var jsonResponse = await response.Content.ReadAsStringAsync();
+				decimal balance = JsonConvert.DeserializeObject<decimal>(jsonResponse);
+				Settings.Balance = balance;
+				return true;
+			}
+			return false;
+		}
 	}
 }
