@@ -5,26 +5,24 @@
 			 xmlns:views="clr-namespace:FinalProjectApp.Views;assembly=FinalProjectApp"
 			 Title="My Card">
 	<views:BaseContentPage.Content>
-		<StackLayout>
-			<!--<Label Text="{Binding Balance}" />
-			<Button Command="{Binding AddPoints}" />-->
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*" />
-					<ColumnDefinition Width="*" />
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="*" />
-					<RowDefinition Height="*" />
-					<RowDefinition Height="*" />
-				</Grid.RowDefinitions>
-			</Grid>
-			<Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}"/>
-			<Label Grid.Column="0" Grid.Row="1" Text="{Binding CardNumber}"  />
-			<Label Grid.Column="0" Grid.Row="2" Text="{Binding Balance}"  />
-			<Label Grid.Column="1" Grid.Row="0" Text="Edit"  />
-			<Button Text="Sign Out" Command="{Binding SignOutCommand}" />
-			<Label Text="" />
+		<StackLayout VerticalOptions="FillAndExpand">
+			<Frame Margin="10" CornerRadius="15" VerticalOptions="CenterAndExpand">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}"/>
+					<Label Grid.Column="0" Grid.Row="1" Text="{Binding CardNumber}"  />
+					<Label Grid.Column="1" Grid.Row="0" Text="Edit"  />
+					<Label Grid.Column="1" Grid.Row="1" Text="{Binding Balance}"  />
+				</Grid>
+			</Frame>
+			<Button Text="Sign Out" Command="{Binding SignOutCommand}" VerticalOptions="End" />
 		</StackLayout>
 	</views:BaseContentPage.Content>
 </views:BaseContentPage>

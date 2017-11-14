@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using FinalProjectApp.Data;
+using System.Globalization;
 
 namespace FinalProjectApp.ViewModels
 {
 	public class CardPageViewModel : BaseViewModel
 	{
-		public decimal Balance { get; set; }
+		public string Balance { get; set; }
 		public string Name { get; set; }
 		public string CardNumber { get; set; }
 
@@ -28,7 +29,7 @@ namespace FinalProjectApp.ViewModels
 			Transaction transaction = new Transaction("Apple",100);
 			TransactionApiRequest request = new TransactionApiRequest();
 			await request.TransactionRequest(transaction);
-			Balance = Settings.Balance;
+			Balance = Settings.Balance.ToString("C", new CultureInfo("en-GB"));
 		});
 
 		public ICommand SignOutCommand => new Command(async() =>
@@ -40,7 +41,7 @@ namespace FinalProjectApp.ViewModels
 		{
 			TransactionApiRequest request = new TransactionApiRequest();
 			await request.GetBalanceRequest();
-			Balance = Settings.Balance;
+			Balance = Settings.Balance.ToString("C", new CultureInfo("en-GB"));
 		}
 	}
 }
