@@ -5,8 +5,10 @@
              x:Class="FinalProjectApp.Views.CreditPage"
 			 Title="Credits">
 	<views:BaseContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
-        </StackLayout>
+		<StackLayout>
+			<Label Text="Add Credit" />
+			<Picker x:Name="CreditPicker" SelectedIndex="{Binding CreditSelectedIndex}" Title="Amount" />
+			<Entry Placeholder="Enter Amount" IsVisible="{Binding CustomEntryVisible}" />
+		</StackLayout>
     </views:BaseContentPage.Content>
 </views:BaseContentPage>
