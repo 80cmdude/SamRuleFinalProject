@@ -18,6 +18,8 @@ namespace FinalProjectApp.Views
 			NavigationPage.SetHasNavigationBar(this, false);
 			InitializeComponent();
 			Children.Add(new CardPage(new CardPageViewModel()));
+			Children.Add(new CreditPage(new CreditPageViewModel()));
+			Children.Add(new TransactionPage(new TransactionPageViewModel()));
 		}
 
 		protected override bool OnBackButtonPressed()

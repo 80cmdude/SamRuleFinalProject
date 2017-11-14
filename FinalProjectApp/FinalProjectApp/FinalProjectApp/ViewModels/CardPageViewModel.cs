@@ -14,6 +14,14 @@ namespace FinalProjectApp.ViewModels
 	public class CardPageViewModel : BaseViewModel
 	{
 		public decimal Balance { get; set; }
+		public string Name { get; set; }
+		public string CardNumber { get; set; }
+
+		public CardPageViewModel()
+		{
+			Name = $"{Settings.FirstName} {Settings.LastName}";
+			CardNumber = $"Card Number: \n {Settings.EmployeeCardNumber}";
+		}
 
 		public ICommand AddPoints => new Command(async() =>
 		{

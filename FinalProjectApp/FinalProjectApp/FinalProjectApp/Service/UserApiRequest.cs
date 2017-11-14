@@ -21,8 +21,7 @@ namespace FinalProjectApp.Service
 
 				var newUser = JsonConvert.DeserializeObject<User>(jsonResponse);
 
-				Settings.Token = newUser.Token;
-				Settings.UserId = Convert.ToInt32(newUser.ID);
+				SetUserSettings(newUser);
 				return true;
 			}
 			return false;
@@ -36,11 +35,20 @@ namespace FinalProjectApp.Service
 				var jsonResponse = await response.Content.ReadAsStringAsync();
 				User signInUser = JsonConvert.DeserializeObject<User>(jsonResponse);
 
-				Settings.Token = signInUser.Token;
-				Settings.UserId = Convert.ToInt32(signInUser.ID);
+				SetUserSettings(signInUser);
 				return true;
 			}
 			return false;
+		}
+
+		private void SetUserSettings(User user)
+		{
+			Settings.Token = user.Token;
+			Settings.UserId = Convert.ToInt32(user.ID);
+			Settings.FirstName = user.FirstName;
+			Settings.LastName = user.LastName;
+			Settings.EmployeeCardNumber = user.EmployeeCardNumber;
+			Settings.PhoneNumber = user.PhoneNumber;
 		}
 	}
 }

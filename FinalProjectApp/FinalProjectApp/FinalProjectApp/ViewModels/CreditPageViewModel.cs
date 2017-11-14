@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProjectApp
+namespace FinalProjectApp.ViewModels
 {
-	public static class Constants
+	public class CreditPageViewModel : BaseViewModel
 	{
-		public static string ApiUrl = "http://5bbd933e.ngrok.io";
+
 	}
 }

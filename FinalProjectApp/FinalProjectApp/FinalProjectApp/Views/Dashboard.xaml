@@ -3,6 +3,4 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProjectApp.Views.Dashboard"
 			 xmlns:views="clr-namespace:FinalProjectApp.Views;assembly=FinalProjectApp">
-	<ContentPage Title="Tab 2" />
-	<ContentPage Title="Tab 3" />
 </TabbedPage>
