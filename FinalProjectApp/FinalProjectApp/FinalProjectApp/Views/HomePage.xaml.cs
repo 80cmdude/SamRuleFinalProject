@@ -15,7 +15,14 @@ namespace FinalProjectApp.Views
 	{
 		public HomePage(HomePageViewModel vm) : base(vm)
 		{
+			NavigationPage.SetHasBackButton(this, false);
 			InitializeComponent();
+		}
+
+		protected override bool OnBackButtonPressed()
+		{
+			// Stops you backing into the app when you leave
+			return true;
 		}
 	}
 }

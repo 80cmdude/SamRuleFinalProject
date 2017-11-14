@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using PropertyChanged;
+using FinalProjectApp.Data;
+using FinalProjectApp.Views;
 
 namespace FinalProjectApp.ViewModels
 {
@@ -28,6 +30,12 @@ namespace FinalProjectApp.ViewModels
 		public virtual void OnDisappearing()
 		{
 
+		}
+
+		public async virtual Task SignOut()
+		{
+			Settings.ClearSettings();
+			await Navigation.PushAsync(new HomePage(new HomePageViewModel()));
 		}
 	}
 }

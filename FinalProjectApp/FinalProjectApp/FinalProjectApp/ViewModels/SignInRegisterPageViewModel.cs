@@ -1,4 +1,5 @@
-﻿using FinalProjectApp.Models;
+﻿using FinalProjectApp.Alert;
+using FinalProjectApp.Models;
 using FinalProjectApp.Service;
 using FinalProjectApp.Views;
 using System;
@@ -14,11 +15,13 @@ namespace FinalProjectApp.ViewModels
 	public class SignInRegisterPageViewModel : BaseViewModel
 	{
 		public bool IsSignInPage { get; set; }
-		public string EmployeeNumberEntryText { get; set; }
 		public string PasswordEntryText { get; set; }
-		public string ConfirmPasswordEntryText { get; set; }
 		public string FirstNameEntryText { get; set; }
 		public string LastNameEntryText { get; set; }
+		public string EmployeeCardNumberEntryText { get; set; }
+		public string EmailEntryText { get; set; }
+		public string PhoneNumberEntryText { get; set; }
+		public string SignInRegButtonText => IsSignInPage ? "Sign In" : "Register";
 
 		private int _employeeNumber { get; set; }
 		private string _password { get; set; }
@@ -26,10 +29,12 @@ namespace FinalProjectApp.ViewModels
 		public SignInRegisterPageViewModel(bool isSignInPage)
 		{
 			IsSignInPage = isSignInPage;
-			EmployeeNumberEntryText = "";
+			EmployeeCardNumberEntryText = "";
 			PasswordEntryText = "";
 			FirstNameEntryText = "";
 			LastNameEntryText = "";
+			EmailEntryText = "";
+			PhoneNumberEntryText = "";
 		}
 
 		public ICommand SignInRegisterCommand => new Command(async () =>
@@ -52,17 +57,25 @@ namespace FinalProjectApp.ViewModels
 
 		private async Task<bool> Register()
 		{
-			bool isEmployee = int.TryParse(EmployeeNumberEntryText, out int employeeNumber);
+			if (string.IsNullOrEmpty(EmployeeCardNumberEntryText) || string.IsNullOrEmpty(PasswordEntryText) || string.IsNullOrEmpty(FirstNameEntryText) || string.IsNullOrEmpty(LastNameEntryText) || string.IsNullOrEmpty(EmailEntryText) || string.IsNullOrEmpty(PhoneNumberEntryText))
+			{
+				Alerts.PopAlertMessage("Invalid Field", "Please fill in all the fields");
+				return false;
+			}
+
+			bool isEmployee = int.TryParse(EmployeeCardNumberEntryText, out int employeeNumber);
 
 			_employeeNumber = employeeNumber;
 			_password = PasswordEntryText;
 
 			User newUser = new User()
 			{
-				EmployeeNumber = _employeeNumber,
+				EmployeeCardNumber = _employeeNumber,
 				FirstName = FirstNameEntryText,
 				LastName = LastNameEntryText,
 				Password = _password,
+				Email = EmailEntryText,
+				PhoneNumber = PhoneNumberEntryText
 			};
 
 			UserApiRequest request = new UserApiRequest();
@@ -72,13 +85,19 @@ namespace FinalProjectApp.ViewModels
 
 		private async Task<bool> SignIn()
 		{
-			bool isEmployee = int.TryParse(EmployeeNumberEntryText, out int employeeNumber);
+			if (string.IsNullOrEmpty(EmployeeCardNumberEntryText) || string.IsNullOrEmpty(PasswordEntryText))
+			{
+				Alerts.PopAlertMessage("Invalid Fields", "Please fill in all the fields");
+				return false;
+			}
+
+			bool isEmployee = int.TryParse(EmployeeCardNumberEntryText, out int employeeNumber);
 			_employeeNumber = employeeNumber;
 			_password = PasswordEntryText;
 
 			User newUser = new User()
 			{
-				EmployeeNumber = _employeeNumber,
+				EmployeeCardNumber = _employeeNumber,
 				Password = _password,
 			};
 

@@ -8,6 +8,7 @@
         <StackLayout>
             <Label Text="{Binding Balance}" />
 			<Button Command="{Binding AddPoints}" />
+			<Button Text="Sign Out" Command="{Binding SignOutCommand}" />
 		</StackLayout>
     </views:BaseContentPage.Content>
 </views:BaseContentPage>

@@ -15,8 +15,15 @@ namespace FinalProjectApp.Views
 	{
 		public Dashboard()
 		{
+			NavigationPage.SetHasNavigationBar(this, false);
 			InitializeComponent();
 			Children.Add(new CardPage(new CardPageViewModel()));
+		}
+
+		protected override bool OnBackButtonPressed()
+		{
+			// Stops you going back to the registration screen
+			return true;
 		}
 	}
 }

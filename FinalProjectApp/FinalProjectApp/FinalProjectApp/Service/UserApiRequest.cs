@@ -35,6 +35,9 @@ namespace FinalProjectApp.Service
 			{
 				var jsonResponse = await response.Content.ReadAsStringAsync();
 				User signInUser = JsonConvert.DeserializeObject<User>(jsonResponse);
+
+				Settings.Token = signInUser.Token;
+				Settings.UserId = Convert.ToInt32(signInUser.ID);
 				return true;
 			}
 			return false;

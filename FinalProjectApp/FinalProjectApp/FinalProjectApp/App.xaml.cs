@@ -29,7 +29,7 @@ namespace FinalProjectApp
 				MainPage = new NavigationPage(new Dashboard());
 			}
 		}
-
+		
 		protected override void OnStart()
 		{
 			// Handle when your app starts

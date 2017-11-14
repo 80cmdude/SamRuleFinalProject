@@ -23,6 +23,11 @@ namespace FinalProjectApp.ViewModels
 			Balance = Settings.Balance;
 		});
 
+		public ICommand SignOutCommand => new Command(async() =>
+		{
+			await SignOut();
+		});
+
 		public async void GetBalance()
 		{
 			TransactionApiRequest request = new TransactionApiRequest();

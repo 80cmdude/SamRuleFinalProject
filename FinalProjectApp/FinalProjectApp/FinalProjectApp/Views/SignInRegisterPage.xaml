@@ -4,18 +4,24 @@
 			xmlns:views="clr-namespace:FinalProjectApp.Views;assembly=FinalProjectApp"
              x:Class="FinalProjectApp.Views.SignInRegisterPage">
 	<ContentView.Content>
-		<StackLayout>
-			<Label Text="Employee Number" />
-			<Entry Text="{Binding EmployeeNumberEntryText}" />
-			<Label Text="Password" />
-			<Entry Text="{Binding PasswordEntryText}" />
-			<StackLayout IsVisible="{Binding IsSignInPage, Converter={StaticResource BoolInvert}}">
-				<Label Text="First Name" />
-				<Entry Text="{Binding FirstNameEntryText}"  />
-				<Label Text="Last Name" />
-				<Entry Text="{Binding LastNameEntryText}"  />
+		<ScrollView>
+			<StackLayout>
+				<Label Text="Employee Card Number" />
+				<Entry Text="{Binding EmployeeCardNumberEntryText}" />
+				<Label Text="Password" />
+				<Entry Text="{Binding PasswordEntryText}" />
+				<StackLayout IsVisible="{Binding IsSignInPage, Converter={StaticResource BoolInvert}}">
+					<Label Text="First Name" />
+					<Entry Text="{Binding FirstNameEntryText}"  />
+					<Label Text="Last Name" />
+					<Entry Text="{Binding LastNameEntryText}"  />
+					<Label Text="Email Address" />
+					<Entry Text="{Binding EmailEntryText}"  />
+					<Label Text="Phone Number" />
+					<Entry Text="{Binding PhoneNumberEntryText}"  />
+				</StackLayout>
+				<Button Text="{Binding SignInRegButtonText}" Command="{Binding SignInRegisterCommand}"/>
 			</StackLayout>
-			<Button Text="Register" Command="{Binding SignInRegisterCommand}"/>
-		</StackLayout>
+		</ScrollView>
 	</ContentView.Content>
 </views:BaseContentPage>
