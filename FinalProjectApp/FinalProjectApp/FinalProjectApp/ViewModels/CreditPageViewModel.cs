@@ -1,6 +1,7 @@
 ﻿using FinalProjectApp.Alert;
 using FinalProjectApp.Models;
 using FinalProjectApp.Service;
+using FinalProjectApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,11 @@ namespace FinalProjectApp.ViewModels
 				TransactionApiRequest request = new TransactionApiRequest();
 				await request.TransactionRequest(transaction);
 			}
+		});
+
+		public ICommand GoToDeveloperPageCommand => new Command(async () =>
+		{
+			await Navigation.PushAsync(new DeveloperPage(new DeveloperPageViewModel()));
 		});
 
 		private bool ValidateData()

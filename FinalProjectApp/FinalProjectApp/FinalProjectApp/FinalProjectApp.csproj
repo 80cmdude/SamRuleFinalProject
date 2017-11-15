@@ -63,6 +63,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CardPageViewModel.cs" />
     <Compile Include="ViewModels\CreditPageViewModel.cs" />
+    <Compile Include="ViewModels\DeveloperPageViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\SignInRegisterPageViewModel.cs" />
     <Compile Include="ViewModels\TransactionPageViewModel.cs" />
@@ -77,6 +78,9 @@
     </Compile>
     <Compile Include="Views\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeveloperPage.xaml.cs">
+      <DependentUpon>DeveloperPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -196,6 +200,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ViewCells\TransactionListViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DeveloperPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

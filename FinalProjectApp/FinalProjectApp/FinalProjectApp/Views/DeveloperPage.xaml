@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:views="clr-namespace:FinalProjectApp.Views;assembly=FinalProjectApp"
+             x:Class="FinalProjectApp.Views.DeveloperPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="The purpose of this page is to mock the various different situaions that a user could come across" />
+			<BoxView HeightRequest="1" Color="Black" Margin="15" />
+			<Label Text="Payment section" />
+			<Label Text="The purpose of this section is to mock the action when a user taps their card on the card reader after buying food from the counter.This will send a request to make a transaction"/>
+			<Entry Placeholder="Product name" Text="{Binding ProductNameText}"/>
+			<Entry Placeholder="Product price" Keyboard="Numeric" Text="{Binding PriceText}"/>
+			<Button Text="Make Payment" Command="{Binding MakePaymentCommand}"/>
+			<BoxView HeightRequest="1" Color="Black" Margin="15" />
+			<Label Text="Clicking this button will invalidate your token. You will have to sign out to continue using the app" />
+			<Button Text="Invalidate my token" Command="{Binding InvalidateTokenCommand}"/>
+		</StackLayout>
+    </ContentPage.Content>
+</views:BaseContentPage>
