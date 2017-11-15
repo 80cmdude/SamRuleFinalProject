@@ -53,6 +53,7 @@ namespace FinalProjectApp.ViewModels
 
 			Transaction transaction = new Transaction("Purchased Credits", _selectedPrice);
 
+			//the credit card information will be sent securley with this request.
 			TransactionApiRequest request = new TransactionApiRequest();
 			await request.TransactionRequest(transaction);
 		});

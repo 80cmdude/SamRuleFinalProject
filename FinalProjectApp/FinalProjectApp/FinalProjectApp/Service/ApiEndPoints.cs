@@ -13,6 +13,7 @@ namespace FinalProjectApp.Service
 		public static string Register = Constants.ApiUrl + _api + "/Register";
 		public static string SignIn = Constants.ApiUrl + _api + "/SignIn";
 		public static string Transaction = Constants.ApiUrl + _api + "/Transaction";
+		public static string Transactions = Constants.ApiUrl + _api + "/Transactions";
 		public static string Balance = Constants.ApiUrl + _api + "/Balance";
 	}
 }

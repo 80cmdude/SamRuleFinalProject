@@ -8,6 +8,7 @@ namespace FinalProjectApp.Models
 {
 	public class Transaction : BaseItem
 	{
+		public int UserId { get; set; }
 		public DateTime Date { get; set; }
 		public string ProductName { get; set; }
 		public decimal ProductPrice { get; set; }

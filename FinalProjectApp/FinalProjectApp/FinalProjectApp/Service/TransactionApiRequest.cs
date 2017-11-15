@@ -13,6 +13,7 @@ namespace FinalProjectApp.Service
 	{
 		public async Task<bool> TransactionRequest(Transaction transaction)
 		{
+			transaction.UserId = Settings.UserId;
 			var response = await GeneratePostRequest(transaction, ApiEndPoints.Transaction);
 			if (response != null)
 			{
@@ -22,6 +23,18 @@ namespace FinalProjectApp.Service
 				return true;
 			}
 			return false;
+		}
+
+		public async Task<List<Transaction>> GetTransactions()
+		{
+			var response = await GenerateGetRequest(ApiEndPoints.Transactions);
+			if (response != null)
+			{
+				var jsonResponse = await response.Content.ReadAsStringAsync();
+				List<Transaction> transactions = JsonConvert.DeserializeObject<List<Transaction>>(jsonResponse);
+				return transactions;
+			}
+			return null;
 		}
 
 		public async Task<bool> GetBalanceRequest()

@@ -1,4 +1,5 @@
-﻿using FinalProjectApp.ViewModels;
+﻿using FinalProjectApp.Service;
+using FinalProjectApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,17 @@ namespace FinalProjectApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TransactionPage : BaseContentPage
 	{
+		TransactionPageViewModel viewModel;
 		public TransactionPage (TransactionPageViewModel vm) : base(vm)
 		{
 			InitializeComponent ();
+			viewModel = vm;
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			viewModel.GetTransactions();
 		}
 	}
 }
