@@ -51,11 +51,15 @@ namespace FinalProjectApp.ViewModels
 				return;
 			_selectedPrice = GetPrice(CreditPickerIndex);
 
-			Transaction transaction = new Transaction("Purchased Credits", _selectedPrice);
+			bool canContinue = await Alerts.PopChoiceAlertMessage("Are you sure?", $"By clicking yes you are agreeing to pay the sum of £{_selectedPrice}");
+			if (canContinue)
+			{
+				Transaction transaction = new Transaction("Purchased Credits", _selectedPrice);
 
-			//the credit card information will be sent securley with this request.
-			TransactionApiRequest request = new TransactionApiRequest();
-			await request.TransactionRequest(transaction);
+				//the credit card information will be sent securley with this request.
+				TransactionApiRequest request = new TransactionApiRequest();
+				await request.TransactionRequest(transaction);
+			}
 		});
 
 		private bool ValidateData()
