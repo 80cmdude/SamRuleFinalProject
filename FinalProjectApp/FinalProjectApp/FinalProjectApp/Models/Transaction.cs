@@ -12,7 +12,7 @@ namespace FinalProjectApp.Models
 		public string ProductName { get; set; }
 		public decimal ProductPrice { get; set; }
 		public decimal PreviosBalance { get; set; }
-		public decimal DetuctedAmount { get; set; }
+		public decimal AddedAmount { get; set; }
 		public decimal NewBalance { get; set; }
 
 		public Transaction(string productName, decimal productPrice)

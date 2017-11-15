@@ -24,13 +24,20 @@ namespace FinalProjectApp.Views
 			{
 				CreditPicker.Items.Add(creditType);
 			}
-
+			viewModel.CreditPickerItems = CreditPicker.Items;
 			CreditPicker.SelectedIndexChanged += CreditPicker_SelectedIndexChanged;
 		}
 
 		private void CreditPicker_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			viewModel.CreditPickerUpdated(CreditPicker.SelectedIndex);
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			viewModel.CreditPickerIndex = CreditPicker.SelectedIndex;
+			
 		}
 	}
 }
