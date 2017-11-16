@@ -8,7 +8,7 @@ namespace FinalProjectApp
 {
 	public static class Constants
 	{
-		public static string ApiUrl = "http://ef13444b.ngrok.io";
+		public static string ApiUrl = "http://c40e46e8.ngrok.io";
 
 		public static Dictionary<string, decimal> CreditPickerItems = new Dictionary<string, decimal>
 		{

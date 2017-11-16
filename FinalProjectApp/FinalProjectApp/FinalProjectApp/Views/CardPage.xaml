@@ -6,8 +6,9 @@
 			 Title="My Card">
 	<views:BaseContentPage.Content>
 		<StackLayout VerticalOptions="FillAndExpand">
+			<Label Text="{Binding Name, StringFormat='Welcome {0}! Here is your current status:'}" Style="{StaticResource LblH1}" HorizontalOptions="Center" Margin="0,20,0,0" LineBreakMode="WordWrap" />
 			<Frame Margin="10" CornerRadius="15" VerticalOptions="CenterAndExpand">
-				<Grid>
+				<Grid Padding="0,10" RowSpacing="25">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*" />
 						<ColumnDefinition Width="*" />
@@ -16,13 +17,12 @@
 						<RowDefinition Height="*" />
 						<RowDefinition Height="*" />
 					</Grid.RowDefinitions>
-					<Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}"/>
-					<Label Grid.Column="0" Grid.Row="1" Text="{Binding CardNumber}"  />
-					<Label Grid.Column="1" Grid.Row="0" Text="Edit"  />
-					<Label Grid.Column="1" Grid.Row="1" Text="{Binding Balance}"  />
+					<Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}" Style="{StaticResource LblH1}" FontAttributes="Bold" FontSize="28" VerticalOptions="Start"/>
+					<Label Grid.Column="0" Grid.Row="1" Text="{Binding CardNumber}" Style="{StaticResource LblH1}" />
+					<Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Balance}" Style="{StaticResource LblPriceGreen}" HorizontalOptions="Center" VerticalOptions="Center"   />
 				</Grid>
 			</Frame>
-			<Button Text="Sign Out" Command="{Binding SignOutCommand}" VerticalOptions="End" />
+			<Button Text="Sign Out" Command="{Binding SignOutCommand}" Style="{StaticResource BtnPrimary}" VerticalOptions="End" Margin="0,0,0,20" />
 		</StackLayout>
 	</views:BaseContentPage.Content>
 </views:BaseContentPage>

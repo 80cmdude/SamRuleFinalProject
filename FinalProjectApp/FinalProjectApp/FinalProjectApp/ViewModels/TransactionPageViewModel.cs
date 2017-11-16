@@ -23,6 +23,7 @@ namespace FinalProjectApp.ViewModels
 				Transactions = new ObservableCollection<Transaction>(new List<Transaction>());
 				return;
 			}
+			transactions.Reverse();
 			Transactions = new ObservableCollection<Transaction>(transactions);
 		}
 	}

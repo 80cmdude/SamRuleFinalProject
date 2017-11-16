@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProjectApp.Views.ViewCells.TransactionListViewCell">
   <ViewCell.View>
-		<Frame Margin="20">
+		<Frame Style="{StaticResource FrameWhite}" Margin="20">
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
@@ -13,9 +13,10 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
-				<Label Grid.Column="0" Grid.Row="0" Text="{Binding Date}" />
-				<Label Grid.Column="0" Grid.Row="1" Text="{Binding ProductName}" />
-				<Label Grid.Column="1" Grid.Row="1" Text="{Binding ProductPrice, StringFormat='£{0:0.00}'}" />
+				<Label Grid.Column="0" Grid.Row="0" Text="{Binding Date}" Style="{StaticResource LblH1}" />
+				<Label Grid.Column="0" Grid.Row="1" Text="{Binding ProductName}" Style="{StaticResource LblH1}" />
+				<Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Text="{Binding ProductPrice, StringFormat='£{0:0.00}'}" VerticalOptions="Center" Style="{StaticResource LblPriceGreen}" IsVisible="{Binding IsPositive}" />
+				<Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Text="{Binding ProductPrice, StringFormat='£{0:0.00}'}" VerticalOptions="Center" Style="{StaticResource LblPriceRed}" IsVisible="{Binding IsPositive,Converter={StaticResource BoolInvert}}}" />
 			</Grid>
 		</Frame>
   </ViewCell.View>

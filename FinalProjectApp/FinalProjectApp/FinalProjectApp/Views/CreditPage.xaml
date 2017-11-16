@@ -6,35 +6,43 @@
 			 Title="Credits">
 	<views:BaseContentPage.Content>
 		<ScrollView>
-			<StackLayout>
-				<Label Text="Add Credit" />
-				<Picker x:Name="CreditPicker" SelectedIndex="{Binding CreditSelectedIndex}" Title="Amount"  />
-				<Entry Placeholder="Enter Amount" IsVisible="{Binding CustomEntryVisible}" Text="{Binding CustomPrice}" />
-				<BoxView HeightRequest="1" Color="Black" Margin="15" />
-				<Label Text="Card Details" />
-				<Label Text="Card Number" />
-				<Entry Placeholder="Enter Card Number" Text="{Binding CreditCardNumber}" />
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="*"/>
-						<ColumnDefinition Width="*"/>
-					</Grid.ColumnDefinitions>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="*"/>
-						<RowDefinition Height="*"/>
-					</Grid.RowDefinitions>
-					<Label Grid.Column="0" Grid.Row="0" Text="Expiry Date" />
-					<DatePicker Grid.Column="0" Grid.Row="1" Format="D" Date="{Binding ExpireyDate}" />
-					<Label Grid.Column="1" Grid.Row="0" Text="Security Pin" />
-					<Entry Grid.Column="1" Grid.Row="1" Placeholder="Enter security pin" Text="{Binding SecurityPin}" />
-				</Grid>
-				<StackLayout Orientation="Horizontal">
-					<Switch IsToggled="{Binding SaveCard}" />
-					<Label Text="Save this card?" />
-				</StackLayout>
-				<Button Text="Purchase Credit" Command="{Binding PurchaseCreditCommand}" />
-				<BoxView HeightRequest="1" Color="Black" Margin="15" />
-				<Button Text="Developer options" Command="{Binding GoToDeveloperPageCommand}" />
+			<StackLayout Padding="15">
+				<Frame Style="{StaticResource FrameWhite}" >
+					<StackLayout Spacing="0">
+						<Label Text="Add Credit" Style="{StaticResource LblH1}" FontAttributes="Bold" FontSize="24" />
+						<Picker x:Name="CreditPicker" SelectedIndex="{Binding CreditSelectedIndex}" Title="Amount"  />
+						<Entry Placeholder="Enter Amount" IsVisible="{Binding CustomEntryVisible}" Text="{Binding CustomPrice}" Keyboard="Numeric" />
+					</StackLayout>
+				</Frame>
+				<BoxView Style="{StaticResource KeyLine}" />
+				<Frame Style="{StaticResource FrameWhite}" >
+					<StackLayout>
+						<Label Text="Card Details" Style="{StaticResource LblH1}" FontAttributes="Bold" Margin="0,0,0,15" FontSize="24" />
+						<Label Text="Card Number" Style="{StaticResource LblH1}" />
+						<Entry Placeholder="Enter Card Number" Text="{Binding CreditCardNumber}" Keyboard="Numeric" />
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="*"/>
+							</Grid.RowDefinitions>
+							<Label Grid.Column="0" Grid.Row="0" Text="Expiry Date" Style="{StaticResource LblH1}" />
+							<DatePicker Grid.Column="0" Grid.Row="1" Format="D" Date="{Binding ExpireyDate}" />
+							<Label Grid.Column="1" Grid.Row="0" Text="Security Pin" Style="{StaticResource LblH1}" />
+							<Entry Grid.Column="1" Grid.Row="1" Placeholder="Enter security pin" Text="{Binding SecurityPin}" Keyboard="Numeric" />
+						</Grid>
+						<StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,15">
+							<Switch IsToggled="{Binding SaveCard}" VerticalOptions="Center"/>
+							<Label Text="Save this card?" Style="{StaticResource LblH1}" VerticalOptions="Center" />
+						</StackLayout>
+						<Button Text="Purchase Credit" Command="{Binding PurchaseCreditCommand}" Style="{StaticResource BtnPrimary}" />
+					</StackLayout>
+				</Frame>
+				<BoxView Style="{StaticResource KeyLine}" />
+				<Button Text="Developer options" Command="{Binding GoToDeveloperPageCommand}" Style="{StaticResource BtnPrimary}" />
 			</StackLayout>
 		</ScrollView>
 	</views:BaseContentPage.Content>

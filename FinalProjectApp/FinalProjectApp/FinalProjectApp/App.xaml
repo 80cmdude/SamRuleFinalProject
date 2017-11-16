@@ -5,7 +5,33 @@
 			 xmlns:converters="clr-namespace:FinalProjectApp.Converters;assembly=FinalProjectApp">
 	<Application.Resources>
 		<ResourceDictionary>
-			<!-- Application resource dictionary -->
+			<Style x:Key="BtnPrimary" TargetType="Button">
+				<Setter Property="BackgroundColor" Value="#50A6C2"/>
+				<Setter Property="BorderRadius" Value="10" />
+				<Setter Property="TextColor" Value="#ffffff" />
+				<Setter Property="Margin" Value="40,0" />
+				<Setter Property="HeightRequest" Value="60" />
+			</Style>
+			<Style x:Key="LblH1" TargetType="Label">
+				<Setter Property="TextColor" Value="#000000"/>
+				<Setter Property="FontSize" Value="18"/>
+			</Style>
+			<Style x:Key="LblPriceGreen" TargetType="Label">
+				<Setter Property="TextColor" Value="#006400"/>
+				<Setter Property="FontSize" Value="40"/>
+			</Style>
+			<Style x:Key="LblPriceRed" TargetType="Label" BaseResourceKey="LblPriceGreen">
+				<Setter Property="TextColor" Value="#8b0000"/>
+			</Style>
+			<Style x:Key="KeyLine" TargetType="BoxView">
+				<Setter Property="BackgroundColor" Value="#000000"/>
+				<Setter Property="Margin" Value="20" />
+				<Setter Property="HeightRequest" Value="1" />
+			</Style>
+			<Style x:Key="FrameWhite" TargetType="Frame">
+				<Setter Property="BackgroundColor" Value="#ffffff"/>
+				<Setter Property="CornerRadius" Value="15" />
+			</Style>
 			<converters:InvertBoolConverter x:Key="BoolInvert"/>
 		</ResourceDictionary>
 	</Application.Resources>

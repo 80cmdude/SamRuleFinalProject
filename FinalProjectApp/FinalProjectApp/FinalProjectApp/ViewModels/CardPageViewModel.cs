@@ -21,7 +21,7 @@ namespace FinalProjectApp.ViewModels
 		public CardPageViewModel()
 		{
 			Name = $"{Settings.FirstName} {Settings.LastName}";
-			CardNumber = $"Card Number: \n {Settings.EmployeeCardNumber}";
+			CardNumber = $"Employee Card Number: \n {Settings.EmployeeCardNumber}";
 		}
 
 		public ICommand AddPoints => new Command(async() =>

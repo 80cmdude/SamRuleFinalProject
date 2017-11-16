@@ -15,6 +15,7 @@ namespace FinalProjectApp.Models
 		public decimal PreviosBalance { get; set; }
 		public decimal AddedAmount { get; set; }
 		public decimal NewBalance { get; set; }
+		public bool IsPositive => ProductPrice > 0 ? true : false;
 
 		public Transaction(string productName, decimal productPrice)
 		{

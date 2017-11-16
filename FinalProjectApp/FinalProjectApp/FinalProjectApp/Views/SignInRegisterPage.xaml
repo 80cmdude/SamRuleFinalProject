@@ -5,23 +5,25 @@
              x:Class="FinalProjectApp.Views.SignInRegisterPage">
 	<ContentView.Content>
 		<ScrollView>
-			<StackLayout>
-				<Label Text="Employee Card Number" />
-				<Entry Text="{Binding EmployeeCardNumberEntryText}" />
-				<Label Text="Password" />
-				<Entry Text="{Binding PasswordEntryText}" />
-				<StackLayout IsVisible="{Binding IsSignInPage, Converter={StaticResource BoolInvert}}">
-					<Label Text="First Name" />
-					<Entry Text="{Binding FirstNameEntryText}"  />
-					<Label Text="Last Name" />
-					<Entry Text="{Binding LastNameEntryText}"  />
-					<Label Text="Email Address" />
-					<Entry Text="{Binding EmailEntryText}"  />
-					<Label Text="Phone Number" />
-					<Entry Text="{Binding PhoneNumberEntryText}"  />
+			<Frame Style="{StaticResource FrameWhite}" Margin="15">
+				<StackLayout Padding="15,15">
+					<Label Text="Employee Card Number" Style="{StaticResource LblH1}" />
+					<Entry Text="{Binding EmployeeCardNumberEntryText}" Keyboard="Numeric" />
+					<Label Text="Password" Style="{StaticResource LblH1}" />
+					<Entry Text="{Binding PasswordEntryText}" IsPassword="True" />
+					<StackLayout IsVisible="{Binding IsSignInPage, Converter={StaticResource BoolInvert}}">
+						<Label Text="First Name" Style="{StaticResource LblH1}" />
+						<Entry Text="{Binding FirstNameEntryText}"  />
+						<Label Text="Last Name" Style="{StaticResource LblH1}" />
+						<Entry Text="{Binding LastNameEntryText}"  />
+						<Label Text="Email Address" Style="{StaticResource LblH1}" />
+						<Entry Text="{Binding EmailEntryText}"  />
+						<Label Text="Phone Number" Style="{StaticResource LblH1}" />
+						<Entry Text="{Binding PhoneNumberEntryText}" Keyboard="Numeric"  />
+					</StackLayout>
+					<Button Text="{Binding SignInRegButtonText}" Command="{Binding SignInRegisterCommand}" Style="{StaticResource BtnPrimary}"/>
 				</StackLayout>
-				<Button Text="{Binding SignInRegButtonText}" Command="{Binding SignInRegisterCommand}"/>
-			</StackLayout>
+			</Frame>
 		</ScrollView>
 	</ContentView.Content>
 </views:BaseContentPage>

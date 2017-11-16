@@ -29,7 +29,7 @@ namespace FinalProjectApp.ViewModels
 
 		public CreditPageViewModel()
 		{
-
+			ExpireyDate = DateTime.Now;
 		}
 
 		public void CreditPickerUpdated(int index)
@@ -59,7 +59,10 @@ namespace FinalProjectApp.ViewModels
 
 				//the credit card information will be sent securley with this request.
 				TransactionApiRequest request = new TransactionApiRequest();
-				await request.TransactionRequest(transaction);
+				if (await request.TransactionRequest(transaction))
+				{
+					Alerts.PopAlertMessage("Success!", "Your credits were added successfully");
+				}
 			}
 		});
 

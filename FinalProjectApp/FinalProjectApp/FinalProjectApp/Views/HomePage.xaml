@@ -5,9 +5,12 @@
 		     xmlns:resx="clr-namespace:FinalProjectApp.Resources.Resx"
              x:Class="FinalProjectApp.Views.HomePage">
     <ContentPage.Content>
-        <StackLayout>
-			<Button Text="{x:Static resx:AppResources.SignIn}" Command="{Binding NavigateSignInCommand}" />
-			<Button Text="{x:Static resx:AppResources.Register}" Command="{Binding NavigateRegisterCommand}" />
+		<StackLayout VerticalOptions="FillAndExpand" Padding="15,40">
+			<Frame BackgroundColor="#50A6C2" WidthRequest="60" HeightRequest="60" Margin="80,40">
+				<Label Text="Bows Formula One Logo" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/> 
+			</Frame>
+			<Button Text="{x:Static resx:AppResources.SignIn}" Command="{Binding NavigateSignInCommand}" Style="{StaticResource BtnPrimary}" VerticalOptions="EndAndExpand"/>
+			<Button Text="{x:Static resx:AppResources.Register}" Command="{Binding NavigateRegisterCommand}" Style="{StaticResource BtnPrimary}" VerticalOptions="End" />
 		</StackLayout>
     </ContentPage.Content>
 </views:BaseContentPage>
